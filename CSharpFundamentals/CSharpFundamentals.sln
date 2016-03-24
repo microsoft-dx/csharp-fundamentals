@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp06 - Inheritance", "c
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp07 - Overriding", "csharp07 - Overriding\csharp07 - Overriding.csproj", "{B708C6CF-8EB7-4662-B435-E06B7516D882}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp08 - Abstract", "csharp08 - Abstract\csharp08 - Abstract.csproj", "{CCA7099A-BCBB-443A-B035-3F684621D197}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{B708C6CF-8EB7-4662-B435-E06B7516D882}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B708C6CF-8EB7-4662-B435-E06B7516D882}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B708C6CF-8EB7-4662-B435-E06B7516D882}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCA7099A-BCBB-443A-B035-3F684621D197}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCA7099A-BCBB-443A-B035-3F684621D197}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCA7099A-BCBB-443A-B035-3F684621D197}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCA7099A-BCBB-443A-B035-3F684621D197}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
