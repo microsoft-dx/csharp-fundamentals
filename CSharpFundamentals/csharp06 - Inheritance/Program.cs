@@ -15,6 +15,9 @@ namespace Inheritance
 
             Snake snake = new Snake("yellow", false);
             snake.Bite();
+
+            HuntingDog huntingDog = new HuntingDog("pink", "chihuahua", 120);
+            huntingDog.Hunt();
         }
     }
 }
