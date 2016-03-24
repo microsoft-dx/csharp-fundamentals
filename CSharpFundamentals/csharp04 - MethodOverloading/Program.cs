@@ -8,8 +8,11 @@ namespace MethodOverloading
             Add(2, 3);
             Add(2, 3, 4);
 
-            Add(2.0, 3.0);
-            Add(2.0, 3.0, 4.0);
+            Add(2.1, 3.0);
+            Add(2.0, 3.2, 4.0);
+
+            Add(2, 3.0);
+            Add(2.0, 3, 4.5);
         }
 
         public static int Add(int a, int b)
@@ -31,5 +34,12 @@ namespace MethodOverloading
         {
             return a + b + c;
         }
+
+        /*
+        public static void Add(int a, int b)
+        {
+            //Not allowed since two overloaded methods cannot differ only by the return type
+        }
+        */
     }
 }
