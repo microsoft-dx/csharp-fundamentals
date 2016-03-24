@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp08 - Abstract", "csha
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp05_2 - Static", "csharp05_2 - Static\csharp05_2 - Static.csproj", "{9D881853-5AA8-483C-BACE-1452F1C98D64}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp09 - Interfaces", "csharp09 - Interfaces\csharp09 - Interfaces.csproj", "{C78E29AF-F6CA-4359-BB59-7FB2E09EA4D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{9D881853-5AA8-483C-BACE-1452F1C98D64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D881853-5AA8-483C-BACE-1452F1C98D64}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D881853-5AA8-483C-BACE-1452F1C98D64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C78E29AF-F6CA-4359-BB59-7FB2E09EA4D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C78E29AF-F6CA-4359-BB59-7FB2E09EA4D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C78E29AF-F6CA-4359-BB59-7FB2E09EA4D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C78E29AF-F6CA-4359-BB59-7FB2E09EA4D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
