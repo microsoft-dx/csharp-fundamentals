@@ -19,10 +19,12 @@ namespace Overriding
 
             Console.WriteLine("Array of animals eating: ");
 
-            Animal[] animals = new Animal[3];
-            animals[0] = animal;
-            animals[1] = dog;
-            animals[2] = snake;
+            Animal[] animals = new Animal[] 
+            {
+                animal,
+                dog,
+                snake
+            };
 
             foreach (var a in animals)
                 a.Eat("food for everybody");
