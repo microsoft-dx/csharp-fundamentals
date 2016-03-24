@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp03 - RefKeyword", "cs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp02 - ValueReference", "csharp03 - RefKeyword\csharp02 - ValueReference.csproj", "{253176CA-CADB-4FD9-950D-22DA8E6191A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp04 - MethodOverloading", "csharp04 - MethodOverloading\csharp04 - MethodOverloading.csproj", "{E6C1EFC0-6937-4912-89F4-BE4F5A45EF3A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{253176CA-CADB-4FD9-950D-22DA8E6191A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{253176CA-CADB-4FD9-950D-22DA8E6191A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{253176CA-CADB-4FD9-950D-22DA8E6191A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6C1EFC0-6937-4912-89F4-BE4F5A45EF3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6C1EFC0-6937-4912-89F4-BE4F5A45EF3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6C1EFC0-6937-4912-89F4-BE4F5A45EF3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6C1EFC0-6937-4912-89F4-BE4F5A45EF3A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
