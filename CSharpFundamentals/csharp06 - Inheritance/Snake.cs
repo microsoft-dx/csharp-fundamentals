@@ -8,7 +8,7 @@ namespace Inheritance
 
         public void Bite()
         {
-            string bite = (IsVenomous) ? String.Format("{0} venomous snake biting") : String.Format("harmless {0} snake biting", Color);
+            string bite = (IsVenomous) ? String.Format("{0} venomous snake biting", Color) : String.Format("harmless {0} snake biting", Color);
             Console.WriteLine(bite);
         }
 
