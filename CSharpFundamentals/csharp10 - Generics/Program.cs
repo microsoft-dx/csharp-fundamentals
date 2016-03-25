@@ -24,7 +24,7 @@ namespace Generics
             Console.WriteLine("firstLetter = {0}, lastLetter = {1}", firstLetter, lastLetter);
 
 
-            Console.WriteLine("\nUsing generic collections");
+            //Using generic collections
 
             List<string> messages = new List<string>();
             messages.Add("Hello");
@@ -37,6 +37,14 @@ namespace Generics
             numbers.Add(7);
 
             //numbers.Add("Hello"); - not allowed
+
+            Console.WriteLine("Using the class Generic");
+
+            var genericInt = new Generic<int>(46);
+            Console.WriteLine("genericInt: {0}", genericInt.ToString());
+
+            var genericString = new Generic<string>("Hello, World!");
+            Console.WriteLine("genericString : {0}", genericString.ToString());
         }
 
         public static void Swap<T>(ref T a, ref T b)
