@@ -18,6 +18,20 @@ namespace Inheritance
 
             HuntingDog huntingDog = new HuntingDog("pink", "chihuahua", 120);
             huntingDog.Hunt();
+
+
+            Animal[] animals = new Animal[]
+            {
+                animal,
+                dog,
+                snake,
+                huntingDog
+            };
+
+            Console.WriteLine("Iterating through the animals array");
+
+            foreach (var a in animals)
+                a.Eat("food for animals");
         }
     }
 }
