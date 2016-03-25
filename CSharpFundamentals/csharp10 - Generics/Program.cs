@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Generics
 {
@@ -21,6 +22,21 @@ namespace Generics
 
             Swap(ref firstLetter, ref lastLetter);
             Console.WriteLine("firstLetter = {0}, lastLetter = {1}", firstLetter, lastLetter);
+
+
+            Console.WriteLine("\nUsing generic collections");
+
+            List<string> messages = new List<string>();
+            messages.Add("Hello");
+            messages.Add("World!");
+
+            //messages.Add(46); - not allowed
+
+            List<int> numbers = new List<int>();
+            numbers.Add(46);
+            numbers.Add(7);
+
+            //numbers.Add("Hello"); - not allowed
         }
 
         public static void Swap<T>(ref T a, ref T b)
@@ -31,6 +47,5 @@ namespace Generics
             a = b;
             b = temp;
         }
-
     }
 }
