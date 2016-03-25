@@ -6,9 +6,9 @@ namespace AdvancedGenericsInterfaces
     {
         static void Main(string[] args)
         {
-            var repo = new Repository<Product>();
+            var productsRepository = new Repository<Product>();
 
-            repo.Add(new Product()
+            productsRepository.Add(new Product()
             {
                 Id = 1,
                 Name = "Onion",
@@ -16,7 +16,7 @@ namespace AdvancedGenericsInterfaces
                 Price = 46
             });
 
-            repo.Add(new Product()
+            productsRepository.Add(new Product()
             {
                 Id = 2,
                 Name = "Carrot",
@@ -24,7 +24,7 @@ namespace AdvancedGenericsInterfaces
                 Price = 23
             });
 
-            foreach (var p in repo.GetAll())
+            foreach (var p in productsRepository.GetAll())
             {
                 p.Print();
             }
