@@ -4,7 +4,7 @@ Hello C#
 Introduction to C#
 -------------------------
 
-When starting to learn most new programming languages, the first example you are introduced is ["Hello, World!"](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program), since it is a very simple program that only prints a `string` to the console.
+When first starting to learn most programming languages, the first example you are introduced is ["Hello, World!"](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program), since it is a very simple program that only prints a `string` to the console.
 
 The purpose of it is to make sure the machine can actually run the code and to show the developer how to print a `string` on the console.
 
@@ -83,7 +83,9 @@ Printing a string to the console
     Console.WriteLine("Hello, Universe!");
 
 	
-Here, we simply call the `WriteLin`e method from the `Console` class that resides in the `System` namespace.
+Here, we simply call the `WriteLine` method from the `Console` class that resides in the `System` namespace.
+
+It will print the `string` we provide as parameter to the console.
 
 > We are able to call methods without instantiating an object of the
 > class first because this is a static method.
