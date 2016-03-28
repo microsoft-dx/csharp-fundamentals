@@ -1,29 +1,33 @@
 ﻿using System;
 
-namespace RefKeyword
+
+namespace ValueReference
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int number = 3;
-            Increment(number);
-            Console.WriteLine("After calling the Increment method, the value of number is: {0}", number);
+            int number = 5;
+            Console.WriteLine("Initially, the value of the number is: {0}", number);
 
-            int num = 0;
-            ReferenceIncrement(ref num);
-            Console.WriteLine("After calling the ReferenceIncrement method, the value of num is: {0}", num);
+            ModifyNumber(number);
+            Console.WriteLine("After calling the ModifyNumber method, the value of number is: {0}", number);
+
+            int[] numbers = new int[5];
+            Console.WriteLine("Initially, the value of numbers[0] is: {0}", numbers[0]);
+
+            ModifyArray(numbers);
+            Console.WriteLine("After calling the ModifyArray method, the value of numbers[0] is :{0}", numbers[0]);
         }
 
-        public static void Increment(int number)
+        public static void ModifyArray(int[] array)
         {
-            number = number + 1;
+            array[0] = 100;
         }
 
-        public static void ReferenceIncrement(ref int number)
+        public static void ModifyNumber(int number)
         {
-            number = number + 1;
+            number = 1000;
         }
     }
 }
-

@@ -1,71 +1,105 @@
-The `ref` keyword
-=========
+Passing Parameters to Methods
+=========================
 
-Passing value types parameters to methods
--------------------------
 
-We saw in the [previous example](https://github.com/microsoft-dx/csharp-fundamentals/tree/master/CSharpFundamentals/csharp02%20-%20ValueReference) how passing a value type to a method actually works: **the method actually receives a copy of the object**, so any **modifications made inside the method will not persist.**
+The C# types
+------------------
 
-But what happens if we want to modify a value type parameter inside a method?
+In C# there are two kinds of types : reference types and value types.
 
-The `ref` keyword
--------------------------
+> There is also a [pointer type](https://msdn.microsoft.com/en-us/library/y31yhkeb.aspx), but it is only used in unsafe contexts
 
-The `ref` keyword **allows you to pass a value type parameter by reference**, meaning that the method will work with the actual reference to the object used as parameter, so **modifications made inside the method will actually persist.**
+Value types contain the value directly, while the reference types contain a reference to the data.
+
+
+[Value Types](https://msdn.microsoft.com/en-us/library/s1ax56ch.aspx)
+----------------
+
+When passing a variable of value type as parameter, the method receives a **copy** of the original object, **so any modifications made inside the method will not persist.**
+
+Value types consist of all numerical types, `bool`, `enum` and `structs` you define yourself.
+
+> Actually, the main value types are `structs` and `enums`, since the numerical values and the `bool` are implemented as `struct`.
+[> Take a look at the implementation of an `int`.](https://msdn.microsoft.com/en-us/library/system.int32%28v=vs.110%29.aspx)
+
+[Reference types](https://msdn.microsoft.com/en-us/library/490f96s2.aspx)
+----------------------
+
+When passing a reference type as a parameter, the method receives a copy of the reference, so it will work with the same object, meaning that **any modifications made inside the method will persist.**
+
+Every user-defined class, interface and delegate is passed by reference, and, as we will see in the example, every array is also passed by reference.
+
+>In C#, `string` has a special behavior. **It is passed by reference** and is **immutable** (that is it cannot be modified - behind the scenes, when you modify a `string`, the new value is copied into an another object and your old variable references the new one).
+
 
 The Code
 -------------
 
+   
     using System;
     
-    namespace RefKeyword
+    
+    namespace ValueReference
     {
         class Program
         {
             static void Main(string[] args)
             {
-                int number = 3;
-                Increment(number);
-                Console.WriteLine("After calling the Increment method, the value of number is: {0}", number);
+                int number = 5;
+                Console.WriteLine("Initially, the value of the number is: {0}", number);
     
-                int num = 0;
-                ReferenceIncrement(ref num);
-                Console.WriteLine("After calling the ReferenceIncrement method, the value of num is: {0}", num);
+                ModifyNumber(number);
+                Console.WriteLine("After calling the ModifyNumber method, the value of number is: {0}", number);
+    
+                int[] numbers = new int[5];
+                Console.WriteLine("Initially, the value of numbers[0] is: {0}", numbers[0]);
+    
+                ModifyArray(numbers);
+                Console.WriteLine("After calling the ModifyArray method, the value of numbers[0] is :{0}", numbers[0]);
             }
     
-            public static void Increment(int number)
+            public static void ModifyArray(int[] array)
             {
-                number = number + 1;
+                array[0] = 100;
             }
     
-            public static void ReferenceIncrement(ref int number)
+            public static void ModifyNumber(int number)
             {
-                number = number + 1;
+                number = 1000;
             }
         }
     }
 
 
-What the first part of the code does
---------------------------------------------------
+What the first part does
+-------------------------
+ 
+ We first declare an `int` that we initialize with the value 5.
+Then, we pass it `ModifyNumber` method which modifies the parameter to 1000.
 
-We first create an `int` and initialize it with the value 3. Then, we pass it as a parameter to the `Increment` method that, well, increments the value of the parameter received.
+Let's see what happens here. We established that an `int` is a **value type**, so when passed as parameter to a method, the respective **method will receive a copy of the object** that will only be in scope as long as the containing method will. 
 
-But since an `int` is passed by value, the new value assigned to the parameter will not persist in the `Main` method context.
+This means the assignment to 1000 will be made on a local copy of the parameter, which will be out of scope by the time the method finishes executing.
 
-
-
-What the second part of the code does
-------------------------------------------------------
-
-Let's have a look at the `ReferenceIncrement` method.
-
-    public static void ReferenceIncrement(ref int number)
-    {
-        number = number + 1;
-    }
-
-It accepts a `ref int` as parameter, returns `void` and increments the parameter it received. But since that parameter was passed with the `ref` keyword,  the modification is made on the actual parameter in memory, which is what happens when passing a reference type parameter to a method.
+So in the `Main` method, the value of `number` will be unchanged.
 
 
-When calling the method, it is enough to call it by adding the `ref` keyword before the parameter and it will be passed by reference.
+What the second part does
+-------------------------
+
+
+We declare and instantiate a new array of 5 `int`. By default, the compiler initializes each element of the array with the default value of the type, in our case with 0.
+
+Then, we pass the `numbers` array to the `ModifyArray` method.
+
+We established earlier that **arrays are passed by reference**, so any modifications made inside the method will reflect on the original method.
+
+In this case, the method modifies the first element of the array to 100.
+
+Then, we simply print the first element of `numbers` to console to verify our affirmation.
+
+
+Conclusion
+---------------
+
+We saw how passing a parameter of value or reference type influences the desired output, and how modifications made inside a method can be seen (or not) outside that method.
