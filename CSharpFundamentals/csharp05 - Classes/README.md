@@ -1,4 +1,4 @@
-Introduction to OOP and Classes
+﻿Introduction to OOP and Classes
 ----------------------------------------------
 One of the base concepts of OOP (Object Oriented Programming) is the concept of a class.
 
@@ -226,7 +226,7 @@ Encapsulation keywords
 
 As we continue working with C# and OOP, we will further discuss encapsulation.
 
-- Inheritance – **allows us to create a new class, based on an existing one**. 
+- **Inheritance** – **allows us to create a new class, based on an existing one**. 
 
 	We will call the class that is inherited from the **base class(parent class)**, and the class that inherits **inherited class(child class)**.
 	
@@ -234,4 +234,4 @@ As we continue working with C# and OOP, we will further discuss encapsulation.
 
 We will have a separate topic for inheritance.
 
-- Polymorphism – method and operator overloading – we can have multiple definitions for a method (different from one another), with different parameters. (different method signatures).
+- **Polymorphism** – method and operator overloading – we can have multiple definitions for a method (different from one another), with different parameters. (different method signatures).
