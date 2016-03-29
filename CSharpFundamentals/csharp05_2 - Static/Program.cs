@@ -18,6 +18,7 @@ namespace Static
 
             Person.PrintCount();
             Console.WriteLine(MathUtilities.Square(7));
+            Console.WriteLine(MathUtilities.Multiply(3, 5));
         }
     }
 }
