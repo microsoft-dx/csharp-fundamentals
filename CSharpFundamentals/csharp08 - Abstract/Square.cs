@@ -11,6 +11,11 @@ namespace Abstract
             return Side * Side;
         }
 
+        public double GetDiagonal()
+        {
+            return Side * Math.Sqrt(2);
+        }
+
         public override void Print()
         {
             Console.WriteLine("This is a square centered in {0} with {1} side and with {2} area", Center.ToString(), Side, GetArea());
