@@ -28,10 +28,18 @@ namespace Inheritance
                 huntingDog
             };
 
-            Console.WriteLine("Iterating through the animals array");
+            Console.WriteLine("Iterating through the animals array\n");
 
             foreach (var a in animals)
+            {
                 a.Eat("food for animals");
+                PrintColor(a);
+            }
+        }
+
+        public static void PrintColor(Animal animal)
+        {
+            Console.WriteLine("The animal is: {0}\n", animal.Color);
         }
     }
 }
