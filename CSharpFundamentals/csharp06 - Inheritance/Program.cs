@@ -8,16 +8,20 @@ namespace Inheritance
         {
             Animal animal = new Animal("green");
             animal.Eat("food");
+            PrintColor(animal);
 
             Dog dog = new Dog("blue", "bichon");
             dog.Eat("bones");
             dog.Bark();
+            PrintColor(dog);
 
             Snake snake = new Snake("yellow", false);
             snake.Bite();
+            PrintColor(snake);
 
             HuntingDog huntingDog = new HuntingDog("pink", "chihuahua", 120);
             huntingDog.Hunt();
+            PrintColor(snake);
 
 
             Animal[] animals = new Animal[]
@@ -31,10 +35,7 @@ namespace Inheritance
             Console.WriteLine("Iterating through the animals array\n");
 
             foreach (var a in animals)
-            {
                 a.Eat("food for animals");
-                PrintColor(a);
-            }
         }
 
         public static void PrintColor(Animal animal)
