@@ -7,11 +7,8 @@ namespace Abstract
         public Point Center { get; set; }
 
         public abstract double GetArea();
-        
-        public virtual void Print()
-        {
-            Console.WriteLine("This is a shape centered in {0}", Center.ToString());
-        }
+
+        public abstract void Print();
 
         public Shape()
         {
