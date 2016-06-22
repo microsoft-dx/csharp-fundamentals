@@ -5,7 +5,7 @@ Passing Parameters to Methods
 The C# types
 ------------------
 
-In C# there are two kinds of types : reference types and value types.
+In C# there are two kinds of types : **reference types** and **value types**.
 
 > There is also a [pointer type](https://msdn.microsoft.com/en-us/library/y31yhkeb.aspx), but it is only used in unsafe contexts
 
@@ -20,7 +20,8 @@ When passing a variable of value type as parameter, the method receives a **copy
 Value types consist of all numerical types, `bool`, `enum` and `structs` you define yourself.
 
 > Actually, the main value types are `structs` and `enums`, since the numerical values and the `bool` are implemented as `struct`.
-[> Take a look at the implementation of an `int`.](https://msdn.microsoft.com/en-us/library/system.int32%28v=vs.110%29.aspx)
+
+>[Source code for the implementation of `int`.](http://referencesource.microsoft.com/#mscorlib/system/int32.cs,225942ed7b7a3252)
 
 [Reference types](https://msdn.microsoft.com/en-us/library/490f96s2.aspx)
 ----------------------
@@ -30,6 +31,8 @@ When passing a reference type as a parameter, the method receives a copy of the 
 Every user-defined class, interface and delegate is passed by reference, and, as we will see in the example, every array is also passed by reference.
 
 >In C#, `string` has a special behavior. **It is passed by reference** and is **immutable** (that is it cannot be modified - behind the scenes, when you modify a `string`, the new value is copied into an another object and your old variable references the new one).
+
+> However, it is possible to modify a `string` [using the `StringBuilder` class.](https://msdn.microsoft.com/en-us/library/system.text.stringbuilder%28v=vs.110%29.aspx) 
 
 
 The Code
@@ -70,9 +73,8 @@ The Code
         }
     }
 
-
-What the first part does
--------------------------
+Passing an `int`
+------------------------
  
  We first declare an `int` that we initialize with the value 5.
 Then, we pass it `ModifyNumber` method which modifies the parameter to 1000.
@@ -84,22 +86,18 @@ This means the assignment to 1000 will be made on a local copy of the parameter,
 So in the `Main` method, the value of `number` will be unchanged.
 
 
-What the second part does
--------------------------
-
+Passing an `int` array
+---------------------------------
 
 We declare and instantiate a new array of 5 `int`. By default, the compiler initializes each element of the array with the default value of the type, in our case with 0.
 
 Then, we pass the `numbers` array to the `ModifyArray` method.
 
-We established earlier that **arrays are passed by reference**, so any modifications made inside the method will reflect on the original method.
+We established earlier that **arrays are passed by reference**, so any modifications made inside the method will reflect on the original method (since the method receives a copy of the reference to the array).
 
-In this case, the method modifies the first element of the array to 100.
-
+In this case, the method modifies the first element of the array to 100 and the chance is persistent.
 Then, we simply print the first element of `numbers` to console to verify our affirmation.
-
 
 Conclusion
 ---------------
-
 We saw how passing a parameter of value or reference type influences the desired output, and how modifications made inside a method can be seen (or not) outside that method.
