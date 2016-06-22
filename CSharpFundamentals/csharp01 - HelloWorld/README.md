@@ -4,9 +4,9 @@ Hello C#
 Introduction to C#
 -------------------------
 
-When first starting to learn most programming languages, the first example you are introduced is ["Hello, World!"](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program), since it is a very simple program that only prints a `string` to the console.
+When first starting to learn most programming languages, the first example you are introduced is ["Hello, World!"](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program), a very simple computer program that simply displays "Hello, World!" to the user.
 
-The purpose of it is to make sure the machine can actually run the code and to show the developer how to print a `string` on the console.
+The purpose of it is to make sure the machine can actually run the code properly and to show the developer how to print a `string` on the console.
 
 The Code
 -------------
@@ -69,15 +69,15 @@ The `Main` method is the entry point of a C# console application  and there can 
 `static void Main(string[] args)`
 
 The `static` keyword in a method specifies that you can call the method without having an instance of that class. 
+>[More on the use of the `static` keyword here.](https://github.com/microsoft-dx/csharp-fundamentals/tree/master/CSharpFundamentals/csharp05_2%20-%20Static)
 
 We established that you need an entry point into your program. Since `Main` is going to be this entry point, it means that you can call it before instantiating an object of type `Program`.
 
-> More on static methods, classes and instantiating objects later.
 
 One of the possible arguments for the `Main` method is `string[] args`. It is an array of `string` and can contain any number of command line arguments to pass when executing the program.
 
 
-Printing a string to the console
+Printing a `string` to the console
 --------------------------------------------
 
     Console.WriteLine("Hello, Universe!");
@@ -87,5 +87,6 @@ Here, we simply call the `WriteLine` method from the `Console` class that reside
 
 It will print the `string` we provide as parameter to the console.
 
-> We are able to call methods without instantiating an object of the
-> class first because this is a static method.
+>[More on the `WriteLine` method from the Official MSDN Documentation.](https://msdn.microsoft.com/en-us/library/system.console.writeline%28v=vs.110%29.aspx)
+
+> We are able to call methods without instantiating an object of the class first because this is a static method.
