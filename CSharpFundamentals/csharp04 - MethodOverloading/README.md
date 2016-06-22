@@ -1,9 +1,13 @@
 Method overloading
 ================
 
+Introduction
+-----------------
+We continue our learning of the C# language with a new topic: method overloading.
+
 What is method overloading?
 -----------------------------------------
-[Method overloading(or function overloading)](https://en.wikipedia.org/wiki/Function_overloading) means having multiple methods in the same scope, with the same name, but different signatures (different number of arguments, different types).
+[Method overloading (or function overloading)](https://en.wikipedia.org/wiki/Function_overloading) means having multiple methods in the same scope, with the same name, but different signatures (different number of arguments, different types).
 
 Based on the parameters used to call the method, the compiler figures out which one to execute at **compile time.**
 
@@ -60,9 +64,8 @@ The Code
         }
     }
 
-
-What the code does
-----------------------------
+The overloaded methods
+-----------------------------------
 
 Here you can see multiple `Add` methods that take `int` and `double` and add the two values.
 
@@ -111,6 +114,7 @@ This way, not implicit cast gets made.
         {
             return a + b + c;
         }
+        
     Add(2.0, 3.2, 4.5);
 	Add(2.0, 3, 4.5);
 Both of these calls will get mapped to the `Add(double a, double b, double c)` method.
