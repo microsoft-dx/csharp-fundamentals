@@ -23,21 +23,19 @@ In this project, we have the same inheritance structure, but a little simplified
 
 > The implementation in the subclass overrides (replaces) the implementation in the superclass by providing a method that has same name, same parameters or signature, and same return type as the method in the parent class. 
 
->**The version of a method that is executed will be determined by the object that is used to invoke** it. 
+>**The version of a method that is executed will be determined by the object that is used to invoke** it.
 
 >If an object of a parent class is used to invoke the method, then the version in the parent class will be executed, but if an object of the subclass is used to invoke the method, then the version in the child class will be executed.
 
 > [More from Wikipedia - Method overriding](https://en.wikipedia.org/wiki/Method_overriding)
 
 
-**Overriding** - principle that allows you to **change the functionality of a method in a child class** – methods in the inherited class with the same name and same parameters as in the base class, but with different behavior and implementation, with the use of the `virtual` keyword.
+**Overriding** - principle that allows you to **change the functionality of a method in a child class** â€“ methods in the inherited class with the same name and same parameters as in the base class, but with different behavior and implementation, with the use of the `virtual` keyword (in C#).
 
-In the case if C#, method overriding is done with the use of the `virtual`  keyword.
 
 Let's analyze our case and see why we would want to use overriding.
 
 In the last project, we had objects of type `Animal`, `Dog`, `HuntingDog` and `Snake`.
-
 But regardless of the type of the object, since all of them inherit `Animal`, when we called the `Eat` method, this was executed every time:
 
     Console.WriteLine("{0} animal eating {1}", Color, food); 
@@ -132,6 +130,7 @@ But this time, because we used overriding, when we do:
 
             foreach (var a in animals)
                 a.Eat("food for everybody");
+the output will be specific for each `Animal` type.
              
 (_Knowledge from the last project_):
 Even though we treat each object as an `Animal`, they still exist as the specific type they were created with.
