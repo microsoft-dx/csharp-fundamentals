@@ -19,7 +19,7 @@ The reason we would want to have an abstract class is for it to serve as a base 
 
 - An abstract class may contain abstract methods and accessors.
 
->It is not possible to modify an abstract class with the sealed (C# Reference) modifier because the two modifers have opposite meanings. The sealed modifier prevents a class from being inherited and the abstract modifier requires a class to be inherited.
+>It is not possible to modify an abstract class with the `sealed` (C# Reference) modifier because the two modifers have opposite meanings. The sealed modifier prevents a class from being inherited and the abstract modifier requires a class to be inherited.
 
 - A non-abstract class derived from an abstract class must include actual implementations of all inherited abstract methods and accessors.
 
@@ -37,6 +37,8 @@ But think for a moment: **does it make sense for a shape with no dimensions** (a
 We will create a  class called `Point` that will model a geometric point: it will have X and Y coordinates, a constructor with two parameters, (the two coordinates) and a parameterless one.
 
 It will also override the `ToString` method that it inherits from `System.Object` and it will return the object in the following manner: `(XCoordinate, YCoordinate)`.
+
+> The `Point` class overrides the `ToString` method in order to have a nicer way of formatting and displaying the coordinate of the point.
 
     public class Point
     {
@@ -71,11 +73,11 @@ We want both `Square` and `Circle`  to inherit `GetArea` from `Shape`, but what 
 
 >The abstract modifier indicates that the thing being modified has a **missing or incomplete implementation.** 
 
-The best solution is to mark the `GetArea` method in `Shape` as abstract, which will allow us to skip the implementation and only provide the method signature. 
+The best solution is to mark the `GetArea` method in `Shape` as `abstract`, which will allow us to skip the implementation and only provide the method signature. 
 
->The moment we make an abstract method, must make the containing class `abstract`. This is because by making the method `abstract`,  we only provide the signature of the method, not an implementation.
+> The moment we make an `abstract` method, must make the containing class `abstract`. This is because by making the method `abstract`,  we only provide the signature of the method, not an implementation.
 
->So we are not allowed to instantiate an abstract class, because we might have missing or incomplete implementation for members.
+> So **we are not allowed to instantiate an abstract class**, because we might have missing or incomplete implementation for members.
 
 > We are also required that if a non-abstract class implements an abstract class, it must provide implementations for all abstract members.
 
@@ -236,7 +238,7 @@ At runtime, we can verify the type of the object and execute the specific method
 `Circle c = (Circle)shape;
 double length = c.GetLength();`
 
-and allows us to access the members without a cast an an assignment.
+and allows us to access the members without a cast and an assignment.
 
 >[More information about the `as` operator in C# on the Official MSDN Documentation](https://msdn.microsoft.com/en-us/library/cscsdfbt.aspx)
 
