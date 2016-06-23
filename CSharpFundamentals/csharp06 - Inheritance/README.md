@@ -5,9 +5,9 @@ We are ready to start learning about **inheritance**. If you want to [remind you
 
 > **Inheritance**, together with **encapsulation** and **polymorphism**, is one of the three primary characteristics (or pillars) of object-oriented programming. 
 
->Inheritance enables you to create new classes that reuse, extend, and modify the behavior that is defined in other classes. The class whose members are inherited is called the base class, and the class that inherits those members is called the derived class. 
+> Inheritance enables you to create new classes that reuse, extend, and modify the behavior that is defined in other classes. The class whose members are inherited is called the base class, and the class that inherits those members is called the derived class. 
 
->A derived class can have only one direct base class. However, inheritance is transitive. If ClassC is derived from ClassB, and ClassB is derived from ClassA, ClassC inherits the members declared in ClassB and ClassA.
+> A derived class can have only one direct base class. However, inheritance is transitive. If `ClassC` is derived from `ClassB`, and `ClassB` is derived from `ClassA`, `ClassC` inherits the members declared in `ClassB` and `ClassA`.
 
 > [More from the MSDN Official Documentation](https://msdn.microsoft.com/en-us/library/ms173149.aspx)
 
@@ -27,7 +27,7 @@ Inheritance puts in place an ***IS A*** relationship between the constituents. I
 
 So `Dog` will contain `Color` and `Breed`.
 
-The Animal class
+The `Animal` class
 ----------------------
 Let's take a look at the full implementation of `Animal`.
 
@@ -50,12 +50,13 @@ Let's take a look at the full implementation of `Animal`.
             }
         }
 
-We have a public property, `Color` , a public method `Eat` that takes as parameter the name of the food and two constructors, a parameterless one and one that takes the color of the animal as argument.
-Every class that will inherit `Animal` will contain these members.
+We have a public property, `Color` , a public method `Eat` that takes as parameter the name of the food.
+We also have two constructors, a parameterless one and one that takes the color of the animal as argument.
+Every class that will inherit `Animal` will contain these members (because these members are declared as `public` or `protected` in the base class. Members we define as `private` are accessible only in the scope of the current class).
 
-The Dog class
+The `Dog` class
 -------------------
-Let's see how we implemented `Dog`.
+Let's look at the implementation of `Dog`.
 
     public class Dog : Animal
     {
@@ -80,23 +81,23 @@ As said earlier, `Dog` ***inherits*** `Color` and `Eat` from `Animal` and adds `
 
 `Dog` also implements two constructors, a default one (parameterless) and a one that takes two `string` arguments: the color and the breed of the dog. 
 
-But if we look again at the constructor from `Animal:` we see that we already have written code that sets the color of an `Animal`, in the constructor of `Animal`.
+But if we look again at the constructor from `Animal` we see that we already have written code that sets the color of an `Animal`.
 
         public Dog(string color, string breed) : base(color)
         {
             Breed = breed;
         }
 
-In this case, we use `: base(color)` to call the constructor from `Animal` that takes a parameter and execute it.
+In this case, we use `: base(color)` to call the constructor from `Animal` that takes a color as parameter and execute it.
 
 So in a `Dog` object we will have access to the `Color`and `Breed` properties and to the `Eat` and `Bark` methods.
 
 > There is also a `Snake` class that inherits from `Animal`, but it is very similar to `Dog`.
 
-The HuntingDog class
+The `HuntingDog` class
 -------------------------------
 
-We can also have a longer of inheritance. So far, we have `Animal` --> `Dog`. Let's see how things react if we add a `HuntingDog` that inherits 	`Dog`.
+We can also have a longer chain of inheritance. So far, we have `Animal` --> `Dog`. Let's see how things react if we add a `HuntingDog` class that inherits 	`Dog`.
 
     public class HuntingDog : Dog
     {
@@ -134,24 +135,25 @@ Let's recall some theory from the MSDN Documentation:
 Translated for our case: `HuntingDog` is derived from `Dog`, and `Dog` is derived from `Animal`. Then, `HuntingDog` inherits the members declared in `Dog` and `Animal`.
 
 This means a `HuntingDog` ***IS A*** `Dog` and `HuntingDog` ***IS AN*** `Animal`.
+(It also means that `HuntingDog` ***IS AN*** `Animal`!)
 
 Using the classes
 ------------------------
 
 So far we created `Animal`, `Dog`, `HuntingDog` and `Snake`. If we want to use them, we can simply instantiate objects of the type we want, not caring that the classes inherit other classes:
 
-Animal animal = new Animal("green");
-            animal.Eat("food");
+		Animal animal = new Animal("green");
+	    animal.Eat("food");
 
-            Dog dog = new Dog("blue", "bichon");
-            dog.Eat("bones");
-            dog.Bark();
+        Dog dog = new Dog("blue", "bichon");
+        dog.Eat("bones");
+        dog.Bark();
 
-            Snake snake = new Snake("yellow", false);
-            snake.Bite();
+        Snake snake = new Snake("yellow", false);
+        snake.Bite();
 
-            HuntingDog huntingDog = new HuntingDog("pink", "chihuahua", 120);
-            huntingDog.Hunt();
+        HuntingDog huntingDog = new HuntingDog("pink", "chihuahua", 120);
+        huntingDog.Hunt();
 
 And use them like any other classes.
 
@@ -175,17 +177,17 @@ Since every `Dog` is an `Animal`, we are allowed to do the following:
 
 Behind the curtains, we simply created a new reference, this time of type `Animal`, that points to the same object in memory.
 
-In the `animal` variable we have a reference to the `dog` object from memory, but **we can only use the capabilities of an `Animal`** (since the `animal` variable is of type `Animal`).
+In the `animal` variable we have a reference to the `dog` object from memory, but **we can only use the capabilities of an `Animal`** (since the `animal` reference is of type `Animal`).
 
-It is important to understand that **we do not modify anything in memory**, **the `dog` object still exists with all its members**, the compiler will simply ignore all other members that are not part of `Animal`.
+It is important to understand that **we do not modify anything in memory**, **the `dog` object still exists with all its members**. When reference by an `Animal` variable,  the compiler will simply ignore all other members that are not part of `Animal`.
 
 > **A cast operation** between reference types **does not change the run-time type of the underlying object**; **it only changes the type of the value that is being used as a reference to that object.**
 
-This operation is called ***upcasting***, or ***implicit** conversion*, and can always be done without doing anything special.
+This operation is called ***upcasting***, or ***implicit conversion***, and can always be done without doing anything special.
 
 > For reference types, **an implicit conversion always exists from a class to any one of its direct or indirect base classes** or interfaces. 
 
->No special syntax is necessary because a derived class always contains all the members of a base class.
+>No special syntax is necessary because a ***derived class always contains all the members of a base class.***
 
 > [More from the MSDN Official Documentation](https://msdn.microsoft.com/en-us/library/ms173105.aspx)
 
@@ -206,16 +208,15 @@ So we are allowed to do:
     PrintColor(snake);
     PrintColor(huntingDog);
     
-And these method calls will simply print the color of the animals and it will consider them all as simply `Animal`s.
+And these method calls will simply print the color of the animals and it will consider them all as simply as objects of type `Animal`.
 
-Creating an array of Animals
------------------------------------------
+Creating an array of  `Animal`
+-------------------------------------------
 
 We understood that we are able to use a `Dog` as an `Animal`. 
+In fact, we established that we can use any type that inherits `Animal` as an `Animal` by ignoring any additional members.
 
-In fact, we established that we can use any type that inherits `Animal` as an `Animal` by ignoring the additional members.
-
-One application of doing this is the fact that we can group multiple objects (**that share a base class**) in the same collection.
+One application of doing this is the fact that we can group multiple objects (**that share a base class!**) in the same collection.
 
 			Animal animal = new Animal("green");
 			Dog dog = new Dog("blue", "bichon");
@@ -239,7 +240,6 @@ Casting back from `Animal` to `Dog`
 ------------------------------------------------------
 
 So far we managed to use a `Dog` as an `Animal`. But how about doing the opposite operation?
-
 We know that every `Dog` is an `Animal`, and this is **always** true. Is the reciprocal also true?
 
 Is every `Animal` a `Dog`?  Not necessarily. As in our examples, we can also have a `Snake` which is an `Animal`, but not a `Dog`.
@@ -253,7 +253,6 @@ Is every `Animal` a `Dog`?  Not necessarily. As in our examples, we can also hav
     Animal animal  = dog;
 
 We can only cast an `Animal` to a specific implementation if we know for sure that we are able to do it.
-
 For example, we are able to do the following:
 
     Dog d = (Dog) animal;
