@@ -24,13 +24,14 @@ The class defines what data and what behavior each particular object (called ins
 -------------
 
 
-A class can contain fields - **data members** -  which define the state of the object - and **method members** - which are used to make operations using the state.
+A class can contain fields - **data members** -  which define the state of the object - and **method members** - which are used to make operations using the state of the object.
 
 The data and functions within a class are known as class members. In C#, there is a distinction between data and methods. In addition to these members, classes can also contain other objects like instances of other classes.
 
 When to choose OOP?
 -------------------------------
-OOP can help you modularize the code (you can define each class in a different file). **Each class will solve one particular type of problem**, and all attributes and methods will be part of that class.
+OOP can help you modularize the code.
+ **Each class will solve one particular type of problem**, and all attributes and methods will be part of that class.
 
 
 > Assumptions: 
@@ -96,7 +97,7 @@ Let's think for a moment at how we would write this class in Java. (I excluded t
         {
 			private String firstName;
 			private String lastName;
-			private int age;			
+			private Integer age;			
 
 			public String getFirstName(){
 				return firstName;
@@ -135,6 +136,8 @@ This is exactly what the C# auto-implemented properties do.
 
 Behind the scenes, when you declare an auto-implemented property, the compiler creates a private field that can be accessed through the `get` and `set` methods you define in the property, **making the code a lot easier to read and maintain.**
 
+>The compiler creates backing fields for each auto-implemented property. The fields are not accessible directly from source code.
+
 > [For more examples on implementing properties, visit this resource.](https://msdn.microsoft.com/en-us/library/w86s7x04.aspx)
 
 You can initialize auto-implemented properties in the following way:
@@ -151,7 +154,7 @@ We created the class, now we want to use it - create objects of the class type.
 
 `person` is called an **instance** of the `Person` class, and it is created using a **constructor**.
 
-Now, we can start using the class members of the `Person` class and give individual values to them, individualizing this instance of the class.
+Now, we can start using the class members of the `Person` class and give specific values to them, individualizing this instance of the class.
 
     person.FirstName = "Isaac";
     person.LastName = "Newton";
@@ -224,7 +227,9 @@ Encapsulation keywords
 -	**Protected** – the information can be accessed and modified by all children of the class
 -	**Private** – the information cannot be accessed or modified from outside
 
-As we continue working with C# and OOP, we will further discuss encapsulation.
+As we continue working with C# and OOP, we will further discuss encapsulation, but in other words, encapsulation is all about hiding complex implementation details and only exposing the minimum necessary elements needed to use some code.
+
+> For a more complete discussion about encapsulation, [view this Microsoft Virtual Academy lecture.](https://mva.microsoft.com/en-US/training-courses/a-guide-to-object-oriented-practices-14329?l=NnQrzk2hB_7804668937)
 
 - **Inheritance** – **allows us to create a new class, based on an existing one**. 
 
@@ -232,6 +237,12 @@ As we continue working with C# and OOP, we will further discuss encapsulation.
 	
 	When a class inherits another a base class, **it inherits all the public and protected members** (data and methods).
 
-We will have a separate topic for inheritance.
+> [For a complete discussion about inheritance, see this article.](https://github.com/microsoft-dx/csharp-fundamentals/tree/master/CSharpFundamentals/csharp06%20-%20Inheritance)
 
-- **Polymorphism** – method and operator overloading – we can have multiple definitions for a method (different from one another), with different parameters. (different method signatures).
+
+ -  **Polymorphism** is often referred to as the third pillar of object-oriented programming, after **encapsulation** and **inheritance**. Polymorphism is a Greek word that means "many-shaped" and it has two distinct aspects:
+>More on polymorphism in the [method overriding article](https://github.com/microsoft-dx/csharp-fundamentals/tree/master/CSharpFundamentals/csharp07%20-%20Overriding) and on the [Official MSDN Documentation](https://msdn.microsoft.com/en-us/library/ms173152.aspx).
+
+- At run time, objects of a derived class may be treated as objects of a base class in places such as method parameters and collections or arrays. When this occurs, the object's declared type is no longer identical to its run-time type.
+
+- Base classes may define and implement virtual methods, and derived classes can override them, which means they provide their own definition and implementation. At run-time, when client code calls the method, the CLR looks up the run-time type of the object, and invokes that override of the virtual method. Thus in your source code you can call a method on a base class, and cause a derived class's version of the method to be executed.
