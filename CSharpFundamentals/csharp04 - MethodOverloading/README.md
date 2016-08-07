@@ -15,55 +15,6 @@ Based on the parameters used to call the method, the compiler figures out which 
 
 The important thing to note for overloading is that **two methods cannot differ only by the return type** because when calling one of them, you are calling using the name and the list of parameters and the compiler cannot make the difference between the two.
 
-
-The Code
--------------
-
-    namespace MethodOverloading
-    {
-        class Program
-        {
-            static void Main(string[] args)
-            {
-                Add(2, 3);
-                Add(2, 3, 4);
-    
-                Add(2.1, 3.0);
-                Add(2.0, 3.2, 4.0);
-    
-                Add(2, 3.0);
-                Add(2.0, 3, 4.5);
-            }
-    
-            public static int Add(int a, int b)
-            {
-                return a + b;
-            }
-    
-            public static int Add(int a, int b, int c)
-            {
-                return a + b + c;
-            }
-    
-            public static double Add(double a, double b)
-            {
-                return a + b;
-            }
-    
-            public static double Add(double a, double b, double c)
-            {
-                return a + b + c;
-            }
-    
-            /*
-            public static void Add(int a, int b)
-            {
-                //Not allowed since two overloaded methods cannot differ only by the return type
-            }
-            */
-        }
-    }
-
 The overloaded methods
 -----------------------------------
 

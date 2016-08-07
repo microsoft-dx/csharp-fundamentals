@@ -8,23 +8,6 @@ When first starting to learn most programming languages, the first example you a
 
 The purpose of it is to make sure the machine can actually run the code properly and to show the developer how to print a `string` on the console.
 
-The Code
--------------
-
-    using System;
-    
-    namespace HelloWorld
-    {
-        class Program
-        {
-            static void Main(string[] args)
-            {
-                Console.WriteLine("Hello, Universe!");
-            }
-        }
-    }
-
-
 Namespaces
 -----------------
 Namespaces are a way to group related classes and help you organize classes. 
